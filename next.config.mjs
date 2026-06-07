@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
-const basePath = '/Wolfsbane';
-
 const nextConfig = {
   output: 'export',
-  basePath,
+  basePath: '/Wolfsbane',
   images: { unoptimized: true },
   env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_BASE_PATH: '/Wolfsbane',
   },
 };
 
