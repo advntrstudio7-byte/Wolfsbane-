@@ -2,9 +2,9 @@ export const SUPPLIER_DIRECTORY = [
   {
     region: "EU · UK",
     items: [
-      { name: "Avon Protection", country: "United Kingdom", role: "CBRN respirators & filtration", cat: "CBRN", est: "1885", logo: "" },
-      { name: "Survitec Group", country: "United Kingdom", role: "Survival & inflatable systems", cat: "Shelters", est: "1840", logo: "" },
-      { name: "Crye Precision", country: "USA / EU distribution", role: "Tactical apparel & plate carriers", cat: "Tacticals", est: "1999", logo: "" },
+      { name: "Oritest", country: "Czech Republic", role: "CBRN detection tubes, papers, decontamination & riot control systems", cat: "CBRN", est: "1993", logo: "/assets/suppliers/oritest-logo.png", productUrl: "https://www.oritest.cz/en/products/" },
+      { name: "FAST-ACT", country: "United States", role: "Dry chemical decontamination — skin, vapor neutralization & spill response kits", cat: "CBRN", est: "2002", logo: "/assets/suppliers/fastact-logo.png", productUrl: "https://fast-act.com/dry-decontamination-products/" },
+      { name: "ChemProtect CZ", country: "Czech Republic", role: "Military autoinjectors for nerve agent & organophosphorus intoxication treatment", cat: "CBRN", est: "2010", logo: "/assets/suppliers/chemprotect-logo.png", productUrl: "https://www.chemprotect.cz/" },
       { name: "MSA Safety", country: "Germany / USA", role: "Respiratory protection & detection", cat: "CBRN", est: "1914", logo: "" },
       { name: "Beretta Defense Tech.", country: "Italy", role: "Small arms & integrated systems", cat: "Tacticals", est: "1526", logo: "" },
       { name: "Aimpoint", country: "Sweden", role: "Optronics & red-dot sights", cat: "Tacticals", est: "1974", logo: "" },
