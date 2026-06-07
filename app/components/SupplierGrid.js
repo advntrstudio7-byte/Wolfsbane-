@@ -1,5 +1,7 @@
 'use client';
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function SupplierGrid({ suppliers }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }} className="supplier-grid">
@@ -34,7 +36,7 @@ export default function SupplierGrid({ suppliers }) {
           }}>
             {s.logo ? (
               <img
-                src={s.logo}
+                src={`${BASE}${s.logo}`}
                 alt={`${s.name} logo`}
                 style={{ maxWidth: '85%', maxHeight: '80%', objectFit: 'contain', display: 'block' }}
               />
