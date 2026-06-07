@@ -24,10 +24,10 @@ export default function SupplierGrid({ suppliers }) {
             </span>
           </div>
 
-          {/* Logo area — dark body colour background, no border when logo present */}
+          {/* Logo area — transparent when logo present so card bg shows through; dashed border when placeholder */}
           <div style={{
             width: '100%', height: 88,
-            background: 'var(--bg)',
+            background: s.logo ? 'transparent' : 'var(--bg)',
             border: s.logo ? 'none' : '1px dashed var(--line-2)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             marginBottom: 18, overflow: 'hidden',
@@ -36,7 +36,7 @@ export default function SupplierGrid({ suppliers }) {
               <img
                 src={s.logo}
                 alt={`${s.name} logo`}
-                style={{ maxWidth: '80%', maxHeight: '72%', objectFit: 'contain', display: 'block' }}
+                style={{ maxWidth: '85%', maxHeight: '80%', objectFit: 'contain', display: 'block' }}
               />
             ) : (
               <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--fg-dim)', letterSpacing: '0.24em', textTransform: 'uppercase' }}>
@@ -68,8 +68,9 @@ export default function SupplierGrid({ suppliers }) {
                 href={s.productUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: 'var(--accent)', letterSpacing: '0.22em', textDecoration: 'none' }}
-                onClick={(e) => e.stopPropagation()}>
+                style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: 'var(--accent)', letterSpacing: '0.22em', textDecoration: 'none', cursor: 'pointer' }}
+                onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}>
                 PRODUCTS →
               </a>
             ) : (
