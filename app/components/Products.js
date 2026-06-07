@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { PRODUCT_CATEGORIES } from '../data/products';
 
 export default function Products() {
@@ -51,17 +52,17 @@ export default function Products() {
           <article onClick={() => router.push(`/products/${featured.code}`)} style={{ position: 'relative', minHeight: 540, background: 'linear-gradient(180deg, #1a1d23 0%, #0f1115 100%)', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', cursor: 'pointer', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}>
-            <span style={{ position: 'absolute', top: 14, left: 14, width: 16, height: 16, borderTop: '1px solid var(--accent)', borderLeft: '1px solid var(--accent)' }}></span>
-            <span style={{ position: 'absolute', bottom: 14, right: 14, width: 16, height: 16, borderBottom: '1px solid var(--accent)', borderRight: '1px solid var(--accent)' }}></span>
+            <span style={{ position: 'absolute', top: 14, left: 14, width: 16, height: 16, borderTop: '1px solid var(--accent)', borderLeft: '1px solid var(--accent)', zIndex: 2 }}></span>
+            <span style={{ position: 'absolute', bottom: 14, right: 14, width: 16, height: 16, borderBottom: '1px solid var(--accent)', borderRight: '1px solid var(--accent)', zIndex: 2 }}></span>
             <div style={{ position: 'absolute', inset: 0, background: '#0f1115' }}>
-              <img src={featured.img} alt={featured.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <Image src={featured.img} alt={featured.name} fill style={{ objectFit: 'cover' }} />
             </div>
-            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '65%', background: 'linear-gradient(180deg, rgba(15,17,21,0) 0%, rgba(15,17,21,0.85) 50%, rgba(15,17,21,0.98) 100%)', pointerEvents: 'none' }}></div>
-            <div style={{ position: 'relative', padding: '32px 36px', display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '65%', background: 'linear-gradient(180deg, rgba(15,17,21,0) 0%, rgba(15,17,21,0.85) 50%, rgba(15,17,21,0.98) 100%)', pointerEvents: 'none', zIndex: 1 }}></div>
+            <div style={{ position: 'relative', padding: '32px 36px', display: 'flex', justifyContent: 'space-between', zIndex: 2 }}>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--accent)', letterSpacing: '0.26em', textTransform: 'uppercase' }}>Featured · {active.short}</div>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--fg-dim)', letterSpacing: '0.22em' }}>{featured.code}</div>
             </div>
-            <div style={{ position: 'relative', padding: '32px 36px 36px' }}>
+            <div style={{ position: 'relative', padding: '32px 36px 36px', zIndex: 2 }}>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--fg-mute)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>Mk-IV · In Stock · Lead 2–4 wks</div>
               <h3 style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: 'clamp(36px, 4.2vw, 60px)', margin: 0, color: 'white', letterSpacing: '0.02em', lineHeight: 0.96 }}>{featured.name}</h3>
               <p style={{ marginTop: 16, marginBottom: 24, color: 'var(--fg-mute)', fontSize: 14, lineHeight: 1.55, maxWidth: '44ch' }}>{active.blurb}</p>
@@ -78,13 +79,13 @@ export default function Products() {
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
                 <div style={{ position: 'absolute', inset: 0 }}>
-                  <img src={it.img} alt={it.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  <Image src={it.img} alt={it.name} fill style={{ objectFit: 'cover' }} />
                 </div>
-                <div style={{ position: 'relative', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                <div style={{ position: 'relative', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, zIndex: 1 }}>
                   <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, background: 'var(--accent)', color: '#0B0B0D', padding: '3px 7px', letterSpacing: '0.22em', fontWeight: 700 }}>{String(i + 2).padStart(2, '0')}</span>
                   <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, color: 'rgba(11,11,13,0.55)', letterSpacing: '0.22em', background: 'rgba(255,255,255,0.7)', padding: '3px 7px' }}>{it.code}</span>
                 </div>
-                <div style={{ position: 'relative', padding: '14px 18px 16px', background: 'linear-gradient(180deg, rgba(11,11,13,0) 0%, rgba(11,11,13,0.85) 60%, rgba(11,11,13,0.95) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                <div style={{ position: 'relative', padding: '14px 18px 16px', background: 'linear-gradient(180deg, rgba(11,11,13,0) 0%, rgba(11,11,13,0.85) 60%, rgba(11,11,13,0.95) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, zIndex: 1 }}>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: 13, color: 'white', lineHeight: 1.25 }}>{it.name}</span>
                   <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 12, color: 'var(--accent)' }}>→</span>
                 </div>
@@ -105,4 +106,4 @@ export default function Products() {
       </div>
     </section>
   );
-}
+  }
