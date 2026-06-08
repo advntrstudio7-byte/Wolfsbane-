@@ -5,6 +5,8 @@ import Footer from '../../components/Footer';
 import RelatedProducts from '../../components/RelatedProducts';
 import { PRODUCT_BY_CODE, PRODUCT_CATEGORIES } from '../../data/products';
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export async function generateStaticParams() {
   return PRODUCT_CATEGORIES.flatMap((cat) =>
     cat.items.map((it) => ({ code: it.code }))
@@ -53,7 +55,7 @@ export default async function ProductPage({ params }) {
           {/* Image column */}
           <div>
             <div style={{ position: 'relative', aspectRatio: '4/3', background: '#15181d', border: '1px solid var(--line)', overflow: 'hidden' }}>
-              <img src={product.img} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img src={`${BASE}${product.img}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               <span style={{ position: 'absolute', top: 14, left: 14, width: 18, height: 18, borderTop: '1.5px solid var(--accent)', borderLeft: '1.5px solid var(--accent)' }}></span>
               <span style={{ position: 'absolute', top: 14, right: 14, width: 18, height: 18, borderTop: '1.5px solid var(--accent)', borderRight: '1.5px solid var(--accent)' }}></span>
               <span style={{ position: 'absolute', bottom: 14, left: 14, width: 18, height: 18, borderBottom: '1.5px solid var(--accent)', borderLeft: '1.5px solid var(--accent)' }}></span>
@@ -63,7 +65,7 @@ export default async function ProductPage({ params }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginTop: 14 }}>
               {[0,1,2,3].map((i) => (
                 <div key={i} style={{ aspectRatio: '1/1', background: '#15181d', border: i === 0 ? '1px solid var(--accent)' : '1px solid var(--line)', overflow: 'hidden', opacity: i === 0 ? 1 : 0.45 }}>
-                  <img src={product.img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  <img src={`${BASE}${product.img}`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               ))}
             </div>

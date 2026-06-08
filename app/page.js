@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import Trust from './components/Trust';
 import Capabilities from './components/Capabilities';
 import Products from './components/Products';
-import Industries from './components/Industries';
 import WhyUs from './components/WhyUs';
 import VisionMission from './components/VisionMission';
 import Contact from './components/Contact';
@@ -35,7 +34,6 @@ export default function Home() {
       <Trust />
       <Capabilities />
       <Products />
-      <Industries />
       <WhyUs />
       <VisionMission />
       <Contact />
