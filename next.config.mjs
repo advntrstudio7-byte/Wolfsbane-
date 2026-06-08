@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+const isGitHubPages = process.env.DEPLOY_TARGET === 'github';
+const basePath = isGitHubPages ? '/Wolfsbane-' : '';
 
 const nextConfig = {
-  ...(isProd && { output: 'export' }),
-  basePath: isProd ? '/Wolfsbane-' : '',
+  output: 'export',
+  basePath,
   images: { unoptimized: true },
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? '/Wolfsbane-' : '',
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 
